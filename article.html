@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Article</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+body{font-family:Poppins,sans-serif;background:#f4f6f8;padding:20px}
+.article{
+  max-width:800px;margin:auto;background:#fff;
+  padding:25px;border-radius:12px
+}
+.article img{width:100%;border-radius:10px;margin:15px 0}
+a{color:#0b5ed7;font-weight:600}
+</style>
+</head>
+
+<body>
+
+<div class="article" id="article"></div>
+
+<script>
+const params = new URLSearchParams(window.location.search);
+const article = JSON.parse(decodeURIComponent(params.get("data")));
+
+document.getElementById("article").innerHTML=`
+  <a href="index.html">← Back</a>
+  <h1>${article.title}</h1>
+  <p><b>${article.source.name}</b></p>
+  <img src="${article.urlToImage}">
+  <p>${article.content || article.description}</p>
+  <a href="${article.url}" target="_blank">Read original source</a>
+`;
+</script>
+
+</body>
+</html>
