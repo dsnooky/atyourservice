@@ -1,119 +1,157 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GlobalViral News</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<!-- SEO META -->
+<title>Snooky Delos Reyes | Freelance Web Developer</title>
+<meta name="description" content="I build professional, fast, and conversion-focused websites for businesses and individuals.">
+<meta name="keywords" content="freelance web developer, website designer, portfolio, web services">
+<meta name="author" content="Snooky Delos Reyes">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins,sans-serif}
-body{background:#f4f6f8}
-header{
-  background:#0b5ed7;color:#fff;padding:15px 20px;
-  display:flex;flex-wrap:wrap;gap:10px;align-items:center
+:root{
+  --primary:#2563eb;
+  --dark:#0f172a;
+  --gray:#64748b;
+  --light:#f8fafc;
 }
-header h1{flex:1;font-size:22px}
-select,input{
-  padding:8px;border-radius:6px;border:none
-}
-.container{padding:25px}
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:20px
-}
-.card{
-  background:#fff;border-radius:12px;overflow:hidden;
-  box-shadow:0 10px 25px rgba(0,0,0,.08);
-  transition:.3s
-}
-.card:hover{transform:translateY(-6px)}
-.card img{width:100%;height:180px;object-fit:cover}
-.card-content{padding:15px}
-.card-content h3{font-size:17px;margin-bottom:8px}
-.card-content span{font-size:12px;color:#888}
-.card-content a{color:#0b5ed7;font-weight:600}
-.loading{text-align:center;padding:30px}
-footer{
-  background:#111;color:#aaa;text-align:center;
-  padding:20px;margin-top:40px
-}
+
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+body{background:var(--light);color:var(--dark);line-height:1.6;}
+.container{max-width:1100px;margin:auto;padding:60px 20px;}
+section{margin-bottom:80px;}
+h2{font-size:32px;margin-bottom:30px;border-left:5px solid var(--primary);padding-left:15px;}
+p{color:var(--gray);}
+
+/* HERO */
+.hero{min-height:90vh;display:flex;align-items:center;}
+.hero h1{font-size:48px;}
+.hero span{color:var(--primary);}
+.hero p{max-width:650px;margin:20px 0;}
+.btn{display:inline-block;padding:12px 28px;border-radius:8px;font-weight:500;text-decoration:none;transition:.3s;}
+.btn-primary{background:var(--primary);color:#fff;}
+.btn-outline{border:2px solid var(--primary);color:var(--primary);}
+.btn:hover{opacity:.9;}
+
+/* GRID CARDS */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;}
+.card{background:#fff;padding:25px;border-radius:14px;box-shadow:0 10px 25px rgba(0,0,0,.05);}
+
+/* PROJECT LINKS */
+.project-links a{display:inline-block;margin-top:10px;color:var(--primary);text-decoration:none;font-weight:500;}
+
+/* PRICING */
+.price{font-size:36px;font-weight:700;color:var(--primary);margin:15px 0;}
+
+/* CONTACT */
+.contact-form{max-width:600px;}
+.contact-form input,
+.contact-form textarea{width:100%;padding:14px;margin-bottom:15px;border-radius:10px;border:1px solid #cbd5e1;}
+.contact-form button{background:var(--primary);color:#fff;padding:14px 30px;border:none;border-radius:10px;cursor:pointer;}
+
+/* FOOTER */
+footer{text-align:center;padding:30px;background:#fff;color:var(--gray);}
+
+@media(max-width:768px){.hero h1{font-size:36px;}}
 </style>
 </head>
-
 <body>
 
-<header>
-  <h1>🌍 GlobalViral</h1>
+<!-- HERO / WHO I AM -->
+<section class="hero container">
+  <div>
+    <h1>Hi, I'm <span>Snooky Delos Reyes</span></h1>
+    <p>I am a Freelance Web Developer dedicated to creating professional, fast, and user-friendly websites that help businesses grow online.</p>
+    <a href="#projects" class="btn btn-primary">View My Work</a>
+    <a href="#pricing" class="btn btn-outline">Hire Me</a>
+  </div>
+</section>
 
-  <select id="country">
-    <option value="us">USA</option>
-    <option value="gb">UK</option>
-    <option value="ph">Philippines</option>
-    <option value="ca">Canada</option>
-    <option value="au">Australia</option>
-  </select>
+<!-- WHAT I DO -->
+<section id="whatido" class="container">
+  <h2>What I Do</h2>
+  <p>I design and develop responsive websites, landing pages, and service platforms that help clients attract customers, increase online presence, and grow their business efficiently.</p>
+</section>
 
-  <input type="text" id="search" placeholder="Search viral news...">
-</header>
+<!-- WHY CHOOSE ME -->
+<section id="why" class="container">
+  <h2>Why Choose Me</h2>
+  <p>✅ Fast and responsive website development<br>
+     ✅ Clean, modern, and professional designs<br>
+     ✅ Focus on user experience and client conversion<br>
+     ✅ Affordable and flexible pricing packages<br>
+     ✅ Excellent communication and support</p>
+</section>
 
-<section class="container">
-  <div id="news" class="grid"></div>
-  <div id="loading" class="loading">Loading viral news...</div>
+<!-- PROJECTS -->
+<section id="projects" class="container">
+  <h2>My Projects</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Hotel Affiliate Website</h3>
+      <p>SEO-friendly affiliate site with city pages and booking integrations.</p>
+      <div class="project-links">
+        <a href="#">Live Preview</a>
+      </div>
+    </div>
+    <div class="card">
+      <h3>Service Business Website</h3>
+      <p>Lead-generation website designed to convert visitors into clients.</p>
+      <div class="project-links">
+        <a href="#">Live Preview</a>
+      </div>
+    </div>
+    <div class="card">
+      <h3>Document Generator Platform</h3>
+      <p>Web platform for generating documents without backend configuration.</p>
+      <div class="project-links">
+        <a href="#">Live Preview</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing" class="container">
+  <h2>Pricing Packages</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Basic</h3>
+      <p class="price">₱3,999</p>
+      <p>✔ 1 Page Website<br>✔ Mobile Responsive<br>✔ Contact Form</p>
+    </div>
+    <div class="card">
+      <h3>Business</h3>
+      <p class="price">₱7,999</p>
+      <p>✔ Up to 5 Pages<br>✔ SEO Setup<br>✔ Lead Optimization</p>
+    </div>
+    <div class="card">
+      <h3>Premium / Custom</h3>
+      <p class="price">₱15,000+</p>
+      <p>✔ Custom Design<br>✔ Advanced Features<br>✔ Priority Support</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="container">
+  <h2>Contact Me</h2>
+  <p>Have a project in mind? Let's work together to build something amazing!</p>
+  <form class="contact-form" action="https://formsubmit.co/your@email.com" method="POST">
+    <input type="hidden" name="_captcha" value="false">
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="email" name="email" placeholder="Your Email" required>
+    <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+    <button type="submit">Send Message</button>
+  </form>
 </section>
 
 <footer>
-  © 2025 GlobalViral News
+  © 2025 Snooky Delos Reyes • Freelance Web Developer
 </footer>
-
-<script>
-const API_KEY = "f755a8869b1540cca6fe4391b91ce008";
-let country = "us";
-
-async function loadNews(query=""){
-  document.getElementById("news").innerHTML="";
-  document.getElementById("loading").style.display="block";
-
-  let url = query
-    ? `https://newsapi.org/v2/everything?q=${query}&language=en&sortBy=popularity&apiKey=${API_KEY}`
-    : `https://newsapi.org/v2/top-headlines?country=${country}&pageSize=20&apiKey=${API_KEY}`;
-
-  const res = await fetch(url);
-  const data = await res.json();
-  document.getElementById("loading").style.display="none";
-
-  data.articles.forEach((a,i)=>{
-    if(!a.urlToImage) return;
-
-    const card = document.createElement("div");
-    card.className="card";
-    card.innerHTML=`
-      <img src="${a.urlToImage}">
-      <div class="card-content">
-        <span>${a.source.name}</span>
-        <h3>${a.title}</h3>
-        <a href="article.html?id=${i}&data=${encodeURIComponent(JSON.stringify(a))}">
-          Read More →
-        </a>
-      </div>
-    `;
-    document.getElementById("news").appendChild(card);
-  });
-}
-
-document.getElementById("country").onchange=e=>{
-  country=e.target.value;
-  loadNews();
-};
-
-document.getElementById("search").onkeyup=e=>{
-  if(e.key==="Enter") loadNews(e.target.value);
-};
-
-loadNews();
-</script>
 
 </body>
 </html>
