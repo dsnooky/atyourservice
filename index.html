@@ -1,186 +1,155 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Snooky Delos Reyes - Portfolio</title>
+  <style>
+    /* General Styles */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Arial', sans-serif; background-color: #f5f5f5; color: #333; scroll-behavior: smooth; }
+    a { color: inherit; text-decoration: none; }
 
-<!-- SEO META -->
-<title>Snooky Delos Reyes | Freelance Web Developer</title>
-<meta name="description" content="I build professional, fast, and conversion-focused websites for businesses and individuals.">
-<meta name="keywords" content="freelance web developer, website designer, portfolio, web services">
-<meta name="author" content="Snooky Delos Reyes">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    /* Hero Section */
+    header {
+      height: 100vh;
+      background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1650&q=80') center/cover no-repeat;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+    }
+    header h1 { font-size: 3em; margin-bottom: 15px; }
+    header p { font-size: 1.5em; margin-bottom: 25px; }
+    nav a { margin: 0 15px; font-weight: bold; transition: 0.3s; }
+    nav a:hover { color: #ffeb3b; }
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    /* Sections */
+    section {
+      max-width: 900px;
+      margin: 60px auto;
+      padding: 0 20px;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 1s ease-out;
+    }
+    section.active { opacity: 1; transform: translateY(0); }
+    h2 {
+      color: #4CAF50;
+      margin-bottom: 20px;
+      border-bottom: 3px solid #4CAF50;
+      display: inline-block;
+      padding-bottom: 5px;
+    }
 
-<style>
-:root{
-  --primary:#2563eb;
-  --dark:#0f172a;
-  --gray:#64748b;
-  --light:#f8fafc;
-}
+    /* Creations & Reviews Grid */
+    .creations, .reviews {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .creation, .review {
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+      transition: transform 0.3s;
+    }
+    .creation:hover, .review:hover { transform: translateY(-5px); }
 
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
-body{background:var(--light);color:var(--dark);line-height:1.6;}
-.container{max-width:1100px;margin:auto;padding:60px 20px;}
-section{margin-bottom:80px;}
-h2{font-size:32px;margin-bottom:30px;border-left:5px solid var(--primary);padding-left:15px;}
-p{color:var(--gray);}
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #eee;
+      margin-top: 60px;
+    }
 
-/* HERO */
-.hero{min-height:90vh;display:flex;align-items:center;}
-.hero h1{font-size:48px;}
-.hero span{color:var(--primary);}
-.hero p{max-width:650px;margin:20px 0;}
-.btn{display:inline-block;padding:12px 28px;border-radius:8px;font-weight:500;text-decoration:none;transition:.3s;}
-.btn-primary{background:var(--primary);color:#fff;}
-.btn-outline{border:2px solid var(--primary);color:var(--primary);}
-.btn:hover{opacity:.9;}
-
-/* GRID CARDS */
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;}
-.card{background:#fff;padding:25px;border-radius:14px;box-shadow:0 10px 25px rgba(0,0,0,.05);}
-
-/* PROJECT LINKS */
-.project-links a{display:inline-block;margin-top:10px;color:var(--primary);text-decoration:none;font-weight:500;}
-
-/* PRICING */
-.price{font-size:36px;font-weight:700;color:var(--primary);margin:15px 0;}
-
-/* CONTACT */
-.contact-form{max-width:600px;}
-.contact-form input,
-.contact-form textarea{width:100%;padding:14px;margin-bottom:15px;border-radius:10px;border:1px solid #cbd5e1;}
-.contact-form button{background:var(--primary);color:#fff;padding:14px 30px;border:none;border-radius:10px;cursor:pointer;}
-
-/* FOOTER */
-footer{text-align:center;padding:30px;background:#fff;color:var(--gray);}
-
-@media(max-width:768px){.hero h1{font-size:36px;}}
-</style>
+  </style>
 </head>
 <body>
 
-<!-- HERO / WHO I AM -->
-<section class="hero container">
-  <div>
-    <h1>Hi, I'm <span>Snooky Delos Reyes</span></h1>
-    <p>I am a Freelance Web Developer dedicated to creating professional, fast, and user-friendly websites that help businesses grow online.</p>
-    <a href="#projects" class="btn btn-primary">View My Work</a>
-    <a href="#pricing" class="btn btn-outline">Hire Me</a>
-  </div>
-</section>
+  <header>
+    <h1>Snooky Delos Reyes</h1>
+    <p>Creative Portfolio</p>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#why-choose">Why Choose Me</a>
+      <a href="#creations">Creations</a>
+      <a href="#reviews">Reviews</a>
+    </nav>
+  </header>
 
-<!-- WHAT I DO -->
-<section id="whatido" class="container">
-  <h2>What I Do</h2>
-  <p>I design and develop responsive websites, landing pages, and service platforms that help clients attract customers, increase online presence, and grow their business efficiently.</p>
-</section>
+  <section id="about">
+    <h2>Who I Am</h2>
+    <p>Hello! I am Snooky Delos Reyes, a passionate creative professional specializing in web design, digital solutions, and freelance projects. I craft clean, effective, and visually appealing solutions that make an impact.</p>
+  </section>
 
-<!-- WHY CHOOSE ME -->
-<section id="why" class="container">
-  <h2>Why Choose Me</h2>
-  <p>✅ Fast and responsive website development<br>
-     ✅ Clean, modern, and professional designs<br>
-     ✅ Focus on user experience and client conversion<br>
-     ✅ Affordable and flexible pricing packages<br>
-     ✅ Excellent communication and support</p>
-</section>
+  <section id="services">
+    <h2>What I Do</h2>
+    <p>I deliver web development, portfolio websites, and digital marketing solutions tailored to your needs. My focus is turning ideas into beautiful and functional digital experiences.</p>
+  </section>
 
-<!-- PROJECTS -->
-<section id="projects" class="container">
-  <h2>My Projects</h2>
-  <div class="grid">
-    <div class="card">
-      <h3>Hotel Affiliate Website</h3>
-      <p>SEO-friendly affiliate site with city pages and booking integrations.</p>
-      <div class="project-links">
-        <a href="#">Live Preview</a>
+  <section id="why-choose">
+    <h2>Why Choose Me</h2>
+    <p>I am reliable, detail-oriented, and committed to exceeding expectations. Choosing me ensures high-quality work, effective communication, and results that truly matter.</p>
+  </section>
+
+  <section id="creations">
+    <h2>My Creations</h2>
+    <div class="creations">
+      <div class="creation">
+        <h3>Portfolio Website</h3>
+        <p>A modern, clean portfolio showcasing personal projects and client work.</p>
+      </div>
+      <div class="creation">
+        <h3>Freelance Projects</h3>
+        <p>Custom websites and digital solutions created for clients worldwide.</p>
+      </div>
+      <div class="creation">
+        <h3>Digital Designs</h3>
+        <p>Creative graphics, social media visuals, and web assets tailored to your brand.</p>
       </div>
     </div>
-    <div class="card">
-      <h3>Service Business Website</h3>
-      <p>Lead-generation website designed to convert visitors into clients.</p>
-      <div class="project-links">
-        <a href="#">Live Preview</a>
+  </section>
+
+  <section id="reviews">
+    <h2>Reviews</h2>
+    <div class="reviews">
+      <div class="review">
+        <p>"Snooky is highly professional and delivered beyond expectations!"</p>
+        <strong>- Client A</strong>
+      </div>
+      <div class="review">
+        <p>"Fast, creative, and reliable. Would work with again!"</p>
+        <strong>- Client B</strong>
+      </div>
+      <div class="review">
+        <p>"Amazing attention to detail and very responsive."</p>
+        <strong>- Client C</strong>
       </div>
     </div>
-    <div class="card">
-      <h3>Document Generator Platform</h3>
-      <p>Web platform for generating documents without backend configuration.</p>
-      <div class="project-links">
-        <a href="#">Live Preview</a>
-      </div>
-    </div>
-  </div>
-</section>
+  </section>
 
-<!-- PRICING -->
-<section id="pricing" class="container">
-  <h2>Pricing Packages</h2>
-  <div class="grid">
-    <div class="card">
-      <h3>Basic</h3>
-      <p class="price">₱3,999</p>
-      <p>✔ 1 Page Website<br>✔ Mobile Responsive<br>✔ Contact Form</p>
-    </div>
-    <div class="card">
-      <h3>Business</h3>
-      <p class="price">₱7,999</p>
-      <p>✔ Up to 5 Pages<br>✔ SEO Setup<br>✔ Lead Optimization</p>
-    </div>
-    <div class="card">
-      <h3>Premium / Custom</h3>
-      <p class="price">₱15,000+</p>
-      <p>✔ Custom Design<br>✔ Advanced Features<br>✔ Priority Support</p>
-    </div>
-  </div>
-</section>
+  <footer>
+    &copy; 2026 Snooky Delos Reyes. All Rights Reserved.
+  </footer>
 
-<!-- CONTACT -->
-<section id="contact" class="container">
-  <h2>Contact Me</h2>
-  <p>Have a project in mind? Let's work together to build something amazing!</p>
-  <form class="contact-form" action="https://formsubmit.co/your@email.com" method="POST">
-    <input type="hidden" name="_captcha" value="false">
-    <input type="text" name="name" placeholder="Your Name" required>
-    <input type="email" name="email" placeholder="Your Email" required>
-    <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-    <button type="submit">Send Message</button>
-  </form>
-</section>
-
-<footer>
-  © 2025 Snooky Delos Reyes • Freelance Web Developer
-</footer>
-  <!-- WhatsApp Floating Button -->
-<a href="https://wa.me/639XXXXXXXXX" target="_blank" id="whatsapp-btn">
-  <img src="https://img.icons8.com/color/48/000000/whatsapp--v1.png" alt="WhatsApp">
-</a>
-
-<style>
-#whatsapp-btn {
-  position: fixed;
-  bottom: 25px;
-  right: 25px;
-  z-index: 1000;
-  width: 60px;
-  height: 60px;
-  background: #25D366;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-  transition: transform 0.3s;
-}
-#whatsapp-btn img {
-  width: 35px;
-  height: 35px;
-}
-#whatsapp-btn:hover {
-  transform: scale(1.1);
-}
-</style>
+  <script>
+    // Fade-in animation on scroll
+    const sections = document.querySelectorAll('section');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.classList.add('active');
+        }
+      });
+    }, { threshold: 0.2 });
+    sections.forEach(section => observer.observe(section));
+  </script>
 
 </body>
 </html>
