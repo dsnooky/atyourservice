@@ -9,67 +9,36 @@
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:Poppins,sans-serif}
-body{background:#f4f6f8;color:#222}
+body{background:#f4f6f8}
 header{
-  background:#0b5ed7;
-  color:#fff;
-  padding:15px 25px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center
+  background:#0b5ed7;color:#fff;padding:15px 20px;
+  display:flex;flex-wrap:wrap;gap:10px;align-items:center
 }
-header h1{font-size:22px}
-nav a{margin-left:15px;color:#fff;font-weight:500}
-
-.hero{
-  padding:50px 25px;
-  background:linear-gradient(to right,#0b5ed7,#1e90ff);
-  color:#fff
+header h1{flex:1;font-size:22px}
+select,input{
+  padding:8px;border-radius:6px;border:none
 }
-.hero h2{font-size:32px;max-width:700px}
-.hero p{margin-top:10px;max-width:700px}
-
-.container{padding:30px}
+.container{padding:25px}
 .grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
   gap:20px
 }
 .card{
-  background:#fff;
-  border-radius:12px;
-  overflow:hidden;
+  background:#fff;border-radius:12px;overflow:hidden;
   box-shadow:0 10px 25px rgba(0,0,0,.08);
   transition:.3s
 }
 .card:hover{transform:translateY(-6px)}
-.card img{
-  width:100%;
-  height:180px;
-  object-fit:cover
-}
+.card img{width:100%;height:180px;object-fit:cover}
 .card-content{padding:15px}
 .card-content h3{font-size:17px;margin-bottom:8px}
-.card-content p{font-size:14px;color:#555}
-.card-content span{
-  font-size:12px;
-  color:#888
-}
-.card-content a{
-  display:inline-block;
-  margin-top:10px;
-  color:#0b5ed7;
-  font-weight:600
-}
-
-.loading{text-align:center;padding:40px;font-size:18px}
-
+.card-content span{font-size:12px;color:#888}
+.card-content a{color:#0b5ed7;font-weight:600}
+.loading{text-align:center;padding:30px}
 footer{
-  background:#111;
-  color:#aaa;
-  padding:20px;
-  text-align:center;
-  margin-top:40px
+  background:#111;color:#aaa;text-align:center;
+  padding:20px;margin-top:40px
 }
 </style>
 </head>
@@ -78,61 +47,70 @@ footer{
 
 <header>
   <h1>🌍 GlobalViral</h1>
-  <nav>
-    <a href="#">Trending</a>
-    <a href="#">World</a>
-    <a href="#">Tech</a>
-    <a href="#">Entertainment</a>
-  </nav>
-</header>
 
-<section class="hero">
-  <h2>Breaking & Viral News From Around the World</h2>
-  <p>Auto-updated global trending stories people are talking about right now.</p>
-</section>
+  <select id="country">
+    <option value="us">USA</option>
+    <option value="gb">UK</option>
+    <option value="ph">Philippines</option>
+    <option value="ca">Canada</option>
+    <option value="au">Australia</option>
+  </select>
+
+  <input type="text" id="search" placeholder="Search viral news...">
+</header>
 
 <section class="container">
   <div id="news" class="grid"></div>
-  <div id="loading" class="loading">Loading global viral news...</div>
+  <div id="loading" class="loading">Loading viral news...</div>
 </section>
 
 <footer>
-  © 2025 GlobalViral News • Auto Updated Worldwide
+  © 2025 GlobalViral News
 </footer>
 
 <script>
-const API_KEY = "f755a8869b1540cca6fe4391b91ce008"; keywords
-const NEWS_URL = `https://newsapi.org/v2/everything?q=viral OR trending OR breaking&language=en&sortBy=popularity&pageSize=24&apiKey=${API_KEY}`;
+const API_KEY = "PUT_YOUR_API_KEY_HERE";
+let country = "us";
 
-async function loadNews(){
-  try{
-    const res = await fetch(NEWS_URL);
-    const data = await res.json();
+async function loadNews(query=""){
+  document.getElementById("news").innerHTML="";
+  document.getElementById("loading").style.display="block";
 
-    const newsDiv = document.getElementById("news");
-    document.getElementById("loading").style.display="none";
+  let url = query
+    ? `https://newsapi.org/v2/everything?q=${query}&language=en&sortBy=popularity&apiKey=${API_KEY}`
+    : `https://newsapi.org/v2/top-headlines?country=${country}&pageSize=20&apiKey=${API_KEY}`;
 
-    data.articles.forEach(article=>{
-      if(!article.urlToImage || !article.title) return;
+  const res = await fetch(url);
+  const data = await res.json();
+  document.getElementById("loading").style.display="none";
 
-      const card = document.createElement("div");
-      card.className="card";
-      card.innerHTML=`
-        <img src="${article.urlToImage}">
-        <div class="card-content">
-          <span>${article.source.name}</span>
-          <h3>${article.title}</h3>
-          <p>${article.description || ""}</p>
-          <a href="${article.url}" target="_blank">Read Full Story →</a>
-        </div>
-      `;
-      newsDiv.appendChild(card);
-    });
+  data.articles.forEach((a,i)=>{
+    if(!a.urlToImage) return;
 
-  }catch(err){
-    document.getElementById("loading").innerText="Failed to load news.";
-  }
+    const card = document.createElement("div");
+    card.className="card";
+    card.innerHTML=`
+      <img src="${a.urlToImage}">
+      <div class="card-content">
+        <span>${a.source.name}</span>
+        <h3>${a.title}</h3>
+        <a href="article.html?id=${i}&data=${encodeURIComponent(JSON.stringify(a))}">
+          Read More →
+        </a>
+      </div>
+    `;
+    document.getElementById("news").appendChild(card);
+  });
 }
+
+document.getElementById("country").onchange=e=>{
+  country=e.target.value;
+  loadNews();
+};
+
+document.getElementById("search").onkeyup=e=>{
+  if(e.key==="Enter") loadNews(e.target.value);
+};
 
 loadNews();
 </script>
