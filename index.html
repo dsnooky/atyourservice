@@ -1,155 +1,230 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Snooky Delos Reyes - Portfolio</title>
-  <style>
-    /* General Styles */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Arial', sans-serif; background-color: #f5f5f5; color: #333; scroll-behavior: smooth; }
-    a { color: inherit; text-decoration: none; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Snooky Delos Reyes - Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+* {margin:0; padding:0; box-sizing:border-box; scroll-behavior:smooth;}
+body {font-family:'Poppins',sans-serif; background:#f5f5f5; color:#333;}
+a {text-decoration:none; color:inherit;}
+section {padding:80px 20px;}
+h1,h2,h3 {margin-bottom:20px;}
+p {margin-bottom:15px; line-height:1.6;}
 
-    /* Hero Section */
-    header {
-      height: 100vh;
-      background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1650&q=80') center/cover no-repeat;
-      color: #fff;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 20px;
-    }
-    header h1 { font-size: 3em; margin-bottom: 15px; }
-    header p { font-size: 1.5em; margin-bottom: 25px; }
-    nav a { margin: 0 15px; font-weight: bold; transition: 0.3s; }
-    nav a:hover { color: #ffeb3b; }
+/* Header */
+header {position:fixed; width:100%; background:#fff; box-shadow:0 2px 5px rgba(0,0,0,0.1); z-index:1000;}
+nav {display:flex; justify-content:center; gap:30px; padding:15px;}
+nav a {font-weight:600; transition:0.3s;}
+nav a:hover {color:#00bcd4;}
 
-    /* Sections */
-    section {
-      max-width: 900px;
-      margin: 60px auto;
-      padding: 0 20px;
-      opacity: 0;
-      transform: translateY(50px);
-      transition: all 1s ease-out;
-    }
-    section.active { opacity: 1; transform: translateY(0); }
-    h2 {
-      color: #4CAF50;
-      margin-bottom: 20px;
-      border-bottom: 3px solid #4CAF50;
-      display: inline-block;
-      padding-bottom: 5px;
-    }
+/* Hero Section */
+#hero {display:flex; flex-direction:column; justify-content:center; align-items:center; height:100vh; background:#00bcd4; color:#fff; text-align:center;}
+#hero h1 {font-size:3rem; opacity:0; transform:translateY(-50px); animation:fadeInDown 1s forwards;}
+#hero p {font-size:1.3rem; opacity:0; transform:translateY(50px); animation:fadeInUp 1s forwards; animation-delay:0.5s;}
+@keyframes fadeInDown {to {opacity:1; transform:translateY(0);}}
+@keyframes fadeInUp {to {opacity:1; transform:translateY(0);}}
 
-    /* Creations & Reviews Grid */
-    .creations, .reviews {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-    }
-    .creation, .review {
-      background: #fff;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 6px 15px rgba(0,0,0,0.08);
-      transition: transform 0.3s;
-    }
-    .creation:hover, .review:hover { transform: translateY(-5px); }
+/* Sections */
+section {max-width:1000px; margin:0 auto; opacity:0; transform:translateY(50px); transition:all 0.8s ease;}
+section.visible {opacity:1; transform:translateY(0);}
+.section-title {text-align:center; margin-bottom:50px; font-size:2rem; color:#00bcd4;}
 
-    footer {
-      text-align: center;
-      padding: 20px;
-      background-color: #eee;
-      margin-top: 60px;
-    }
+/* Content Cards */
+.content {display:flex; flex-wrap:wrap; gap:40px; justify-content:center;}
+.card {background:#fff; padding:30px; border-radius:10px; flex:1 1 300px; box-shadow:0 5px 15px rgba(0,0,0,0.1); transition:0.3s;}
+.card:hover {transform:translateY(-10px) scale(1.02);}
 
-  </style>
+/* Projects */
+.projects {display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:20px;}
+.project-card {background:#fff; padding:20px; border-radius:10px; box-shadow:0 5px 15px rgba(0,0,0,0.1); transition:0.3s; transform:scale(0.95);}
+.project-card:hover {transform:scale(1.05); box-shadow:0 10px 25px rgba(0,0,0,0.2);}
+
+/* Counters */
+.counters {display:flex; flex-wrap:wrap; gap:40px; justify-content:center; text-align:center; margin-top:40px;}
+.counter {background:#fff; padding:30px; border-radius:10px; flex:1 1 150px; box-shadow:0 5px 15px rgba(0,0,0,0.1);}
+.counter h3 {font-size:2rem; color:#00bcd4; margin-bottom:10px;}
+
+/* Reviews */
+.reviews {display:flex; flex-direction:column; gap:20px;}
+.review-card {background:#fff; padding:20px; border-radius:10px; box-shadow:0 5px 15px rgba(0,0,0,0.1); transform:translateX(-50px); opacity:0; transition:0.5s;}
+.review-card.visible {transform:translateX(0); opacity:1;}
+
+/* Pricing */
+.pricing {display:flex; flex-wrap:wrap; gap:20px; justify-content:center;}
+.price-card {background:#fff; padding:30px; border-radius:10px; flex:1 1 250px; box-shadow:0 5px 15px rgba(0,0,0,0.1); transition:0.5s; transform:translateY(20px); opacity:0;}
+.price-card.visible {transform:translateY(0); opacity:1;}
+.price-card:hover {transform:translateY(-10px) scale(1.02); box-shadow:0 10px 25px rgba(0,0,0,0.2);}
+.price {font-size:2rem; font-weight:700; color:#00bcd4; margin-bottom:15px;}
+
+/* Back to Top Button */
+#backToTop {position:fixed; bottom:30px; right:30px; background:#00bcd4; color:#fff; padding:15px; border-radius:50%; cursor:pointer; font-weight:bold; display:none; box-shadow:0 5px 15px rgba(0,0,0,0.2); transition:0.3s;}
+#backToTop:hover {background:#009bbd; transform:scale(1.1);}
+
+/* Footer */
+footer {text-align:center; padding:20px; background:#333; color:#fff;}
+</style>
 </head>
 <body>
 
-  <header>
-    <h1>Snooky Delos Reyes</h1>
-    <p>Creative Portfolio</p>
+<header>
     <nav>
-      <a href="#about">About</a>
-      <a href="#services">Services</a>
-      <a href="#why-choose">Why Choose Me</a>
-      <a href="#creations">Creations</a>
-      <a href="#reviews">Reviews</a>
+        <a href="#hero">Home</a>
+        <a href="#about">About</a>
+        <a href="#whatido">What I Do</a>
+        <a href="#projects">Creations</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#pricing">Pricing</a>
     </nav>
-  </header>
+</header>
 
-  <section id="about">
-    <h2>Who I Am</h2>
-    <p>Hello! I am Snooky Delos Reyes, a passionate creative professional specializing in web design, digital solutions, and freelance projects. I craft clean, effective, and visually appealing solutions that make an impact.</p>
-  </section>
+<section id="hero">
+    <h1>Snooky Delos Reyes</h1>
+    <p>Creative Developer & Designer | Crafting Digital Experiences</p>
+</section>
 
-  <section id="services">
-    <h2>What I Do</h2>
-    <p>I deliver web development, portfolio websites, and digital marketing solutions tailored to your needs. My focus is turning ideas into beautiful and functional digital experiences.</p>
-  </section>
-
-  <section id="why-choose">
-    <h2>Why Choose Me</h2>
-    <p>I am reliable, detail-oriented, and committed to exceeding expectations. Choosing me ensures high-quality work, effective communication, and results that truly matter.</p>
-  </section>
-
-  <section id="creations">
-    <h2>My Creations</h2>
-    <div class="creations">
-      <div class="creation">
-        <h3>Portfolio Website</h3>
-        <p>A modern, clean portfolio showcasing personal projects and client work.</p>
-      </div>
-      <div class="creation">
-        <h3>Freelance Projects</h3>
-        <p>Custom websites and digital solutions created for clients worldwide.</p>
-      </div>
-      <div class="creation">
-        <h3>Digital Designs</h3>
-        <p>Creative graphics, social media visuals, and web assets tailored to your brand.</p>
-      </div>
+<section id="about">
+    <h2 class="section-title">Who I Am</h2>
+    <div class="content">
+        <div class="card">
+            <h3>About Me</h3>
+            <p>I am a passionate web developer and designer who loves creating clean, responsive, and interactive websites that help clients grow their online presence.</p>
+        </div>
+        <div class="card">
+            <h3>Why Choose Me</h3>
+            <p>I combine creativity, technical expertise, and attention to detail to deliver high-quality projects efficiently. Your satisfaction is my priority.</p>
+        </div>
     </div>
-  </section>
 
-  <section id="reviews">
-    <h2>Reviews</h2>
+    <div class="counters">
+        <div class="counter">
+            <h3 class="count" data-target="50">0</h3>
+            <p>Projects Completed</p>
+        </div>
+        <div class="counter">
+            <h3 class="count" data-target="30">0</h3>
+            <p>Happy Clients</p>
+        </div>
+        <div class="counter">
+            <h3 class="count" data-target="5">0</h3>
+            <p>Years of Experience</p>
+        </div>
+    </div>
+</section>
+
+<section id="whatido">
+    <h2 class="section-title">What I Do</h2>
+    <div class="content">
+        <div class="card">
+            <h3>Web Development</h3>
+            <p>Responsive websites, landing pages, and web apps using modern technologies.</p>
+        </div>
+        <div class="card">
+            <h3>UI/UX Design</h3>
+            <p>Clean and intuitive designs that enhance user experience and engagement.</p>
+        </div>
+    </div>
+</section>
+
+<section id="projects">
+    <h2 class="section-title">My Creations</h2>
+    <div class="projects">
+        <div class="project-card"><h3>Project 1</h3><p>Short description of project 1.</p></div>
+        <div class="project-card"><h3>Project 2</h3><p>Short description of project 2.</p></div>
+        <div class="project-card"><h3>Project 3</h3><p>Short description of project 3.</p></div>
+        <div class="project-card"><h3>Project 4</h3><p>Short description of project 4.</p></div>
+    </div>
+</section>
+
+<section id="reviews">
+    <h2 class="section-title">Reviews</h2>
     <div class="reviews">
-      <div class="review">
-        <p>"Snooky is highly professional and delivered beyond expectations!"</p>
-        <strong>- Client A</strong>
-      </div>
-      <div class="review">
-        <p>"Fast, creative, and reliable. Would work with again!"</p>
-        <strong>- Client B</strong>
-      </div>
-      <div class="review">
-        <p>"Amazing attention to detail and very responsive."</p>
-        <strong>- Client C</strong>
-      </div>
+        <div class="review-card"><p>"Excellent work! Highly recommended."</p><strong>- Client A</strong></div>
+        <div class="review-card"><p>"Very professional and creative."</p><strong>- Client B</strong></div>
+        <div class="review-card"><p>"Delivered on time with great quality."</p><strong>- Client C</strong></div>
     </div>
-  </section>
+</section>
 
-  <footer>
-    &copy; 2026 Snooky Delos Reyes. All Rights Reserved.
-  </footer>
+<section id="pricing">
+    <h2 class="section-title">Pricing</h2>
+    <div class="pricing">
+        <div class="price-card">
+            <h3>Basic</h3>
+            <p class="price">$100</p>
+            <p>Simple landing page with basic features.</p>
+        </div>
+        <div class="price-card">
+            <h3>Standard</h3>
+            <p class="price">$250</p>
+            <p>Full website with multiple pages and responsive design.</p>
+        </div>
+        <div class="price-card">
+            <h3>Premium</h3>
+            <p class="price">$500</p>
+            <p>Custom website with advanced features and SEO optimization.</p>
+        </div>
+    </div>
+</section>
 
-  <script>
-    // Fade-in animation on scroll
+<div id="backToTop">&#8679;</div>
+
+<footer>
+    &copy; 2026 Snooky Delos Reyes. All rights reserved.
+</footer>
+
+<script>
+    // Animate sections on scroll
     const sections = document.querySelectorAll('section');
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if(entry.isIntersecting){
-          entry.target.classList.add('active');
-        }
-      });
-    }, { threshold: 0.2 });
-    sections.forEach(section => observer.observe(section));
-  </script>
+    const reviews = document.querySelectorAll('.review-card');
+    const prices = document.querySelectorAll('.price-card');
+    const counters = document.querySelectorAll('.count');
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if(entry.isIntersecting){
+                entry.target.classList.add('visible');
+            }
+        });
+    }, {threshold:0.2});
+
+    sections.forEach(sec => observer.observe(sec));
+    reviews.forEach(r => observer.observe(r));
+    prices.forEach(p => observer.observe(p));
+
+    // Counter animation
+    const counterObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if(entry.isIntersecting){
+                const el = entry.target;
+                const target = +el.getAttribute('data-target');
+                let count = 0;
+                const increment = target / 100;
+                const updateCounter = () => {
+                    count += increment;
+                    if(count < target){
+                        el.innerText = Math.ceil(count);
+                        requestAnimationFrame(updateCounter);
+                    } else {
+                        el.innerText = target;
+                    }
+                }
+                updateCounter();
+                observer.unobserve(el);
+            }
+        });
+    }, {threshold:0.6});
+
+    counters.forEach(counter => counterObserver.observe(counter));
+
+    // Back to Top Button
+    const backToTop = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+        if(window.scrollY > 500) backToTop.style.display = 'block';
+        else backToTop.style.display = 'none';
+    });
+    backToTop.addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
+</script>
 
 </body>
 </html>
