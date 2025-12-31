@@ -1,236 +1,265 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Portfolio</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Snooky Delos Reyes | Freelance Web Developer</title>
 
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
-    }
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
+body{background:#f6f8fc;color:#222;line-height:1.6}
+section{padding:80px 20px;max-width:1200px;margin:auto}
+h2{text-align:center;font-size:2.3rem;margin-bottom:50px;color:#0f4c81}
+header{
+min-height:100vh;
+background:linear-gradient(135deg,#0f4c81,#1e90ff);
+color:#fff;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+padding:20px
+}
+header h1{font-size:3rem}
+header p{font-size:1.2rem;margin:15px 0}
+.btn{
+display:inline-block;
+padding:14px 32px;
+background:#fff;
+color:#0f4c81;
+border-radius:30px;
+text-decoration:none;
+font-weight:600;
+transition:.3s
+}
+.btn:hover{transform:scale(1.05)}
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:25px
+}
+.card{
+background:#fff;
+padding:30px;
+border-radius:16px;
+box-shadow:0 10px 30px rgba(0,0,0,.08);
+transition:.3s
+}
+.card:hover{transform:translateY(-8px)}
+img{width:100%;border-radius:12px}
+.price{font-size:2rem;color:#1e90ff;margin:15px 0}
+footer{background:#0f4c81;color:#fff;text-align:center;padding:25px}
+.reveal{opacity:0;transform:translateY(40px);transition:.8s}
+.reveal.active{opacity:1;transform:none}
 
-    body {
-      background: #0f172a;
-      color: #e5e7eb;
-      line-height: 1.6;
-    }
+/* PROJECTS */
+.project img{transition:.3s}
+.project:hover img{transform:scale(1.05)}
+.project-links{display:flex;gap:12px;margin-top:15px}
+.project-links a{
+flex:1;
+text-align:center;
+padding:10px;
+border-radius:8px;
+text-decoration:none;
+font-weight:600;
+background:#1e90ff;
+color:#fff;
+transition:.3s
+}
+.project-links a:last-child{background:#0f4c81}
+.project-links a:hover{opacity:.85}
 
-    header {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 20px;
-      background: linear-gradient(135deg, #2563eb, #0ea5e9);
-    }
-
-    header h1 {
-      font-size: 3rem;
-      animation: fadeDown 1s ease;
-    }
-
-    header p {
-      margin-top: 10px;
-      font-size: 1.2rem;
-      opacity: 0.9;
-      animation: fadeUp 1.2s ease;
-    }
-
-    section {
-      padding: 80px 10%;
-    }
-
-    .section-title {
-      text-align: center;
-      font-size: 2.2rem;
-      margin-bottom: 40px;
-      color: #38bdf8;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 30px;
-    }
-
-    .card {
-      background: #020617;
-      padding: 30px;
-      border-radius: 15px;
-      transition: 0.3s;
-      opacity: 0;
-      transform: translateY(30px);
-    }
-
-    .card.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 20px 40px rgba(56,189,248,0.3);
-    }
-
-    .card h3 {
-      margin-bottom: 10px;
-      color: #38bdf8;
-    }
-
-    .contact {
-      text-align: center;
-    }
-
-    .contact a {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 12px 30px;
-      background: #38bdf8;
-      color: #020617;
-      border-radius: 30px;
-      text-decoration: none;
-      font-weight: 600;
-      transition: 0.3s;
-    }
-
-    .contact a:hover {
-      background: #0ea5e9;
-    }
-
-    footer {
-      text-align: center;
-      padding: 20px;
-      background: #020617;
-      font-size: 0.9rem;
-    }
-
-    @keyframes fadeDown {
-      from { opacity: 0; transform: translateY(-30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @media (max-width: 768px) {
-      header h1 {
-        font-size: 2.2rem;
-      }
-    }
-  </style>
+/* FORM */
+form input,form textarea{
+width:100%;
+padding:12px;
+margin-bottom:15px;
+border-radius:8px;
+border:1px solid #ccc
+}
+form button{
+width:100%;
+padding:14px;
+border:none;
+border-radius:8px;
+background:#1e90ff;
+color:#fff;
+font-size:1rem;
+cursor:pointer
+}
+</style>
 </head>
+
 <body>
 
-  <!-- HERO -->
-  <header>
-    <div>
-      <h1>Hi, I’m Your Name</h1>
-      <p>Web Developer • Designer • Freelancer</p>
-    </div>
-  </header>
+<!-- HERO -->
+<header>
+<div>
+<h1>Snooky Delos Reyes</h1>
+<p>I build clean, modern websites that convert visitors into clients.</p>
+<a href="#pricing" class="btn">View Packages</a>
+</div>
+</header>
 
-  <!-- ABOUT -->
-  <section>
-    <h2 class="section-title">About Me</h2>
-    <div class="card">
-      <p>
-        I’m a passionate digital professional who helps businesses and individuals
-        build modern, responsive, and conversion-focused websites.
-      </p>
-    </div>
-  </section>
+<!-- ABOUT -->
+<section class="reveal">
+<h2>About Me</h2>
+<div class="card" style="text-align:center">
+<p>
+I’m a freelance web developer helping businesses and individuals build
+professional, fast, and responsive websites that generate real results.
+</p>
+</div>
+</section>
 
-  <!-- WHAT I DO -->
-  <section>
-    <h2 class="section-title">What I Do</h2>
-    <div class="grid">
-      <div class="card">
-        <h3>Website Development</h3>
-        <p>Clean, fast, and responsive websites optimized for all devices.</p>
-      </div>
-      <div class="card">
-        <h3>UI/UX Design</h3>
-        <p>User-friendly designs that look professional and convert visitors.</p>
-      </div>
-      <div class="card">
-        <h3>Freelance Solutions</h3>
-        <p>Custom solutions tailored to your business needs.</p>
-      </div>
-    </div>
-  </section>
+<!-- WHAT I DO -->
+<section class="reveal">
+<h2>What I Do</h2>
+<div class="grid">
+<div class="card">🌐 Website Design & Development</div>
+<div class="card">📱 Mobile-First Responsive Design</div>
+<div class="card">⚡ Fast & SEO-Optimized Websites</div>
+<div class="card">🤖 Automation & AI-Ready Solutions</div>
+</div>
+</section>
 
-  <!-- WHY HIRE ME -->
-  <section>
-    <h2 class="section-title">Why Should You Hire Me</h2>
-    <div class="grid">
-      <div class="card">
-        <h3>Professional & Reliable</h3>
-        <p>I deliver quality work on time with clear communication.</p>
-      </div>
-      <div class="card">
-        <h3>Client-Focused</h3>
-        <p>Your goals matter. I build solutions that help you succeed.</p>
-      </div>
-      <div class="card">
-        <h3>Modern & Scalable</h3>
-        <p>Websites built with future growth in mind.</p>
-      </div>
-    </div>
-  </section>
+<!-- WHY HIRE ME -->
+<section class="reveal">
+<h2>Why Hire Me</h2>
+<div class="grid">
+<div class="card">✅ Clean & Professional Output</div>
+<div class="card">🎯 Conversion-Focused Design</div>
+<div class="card">💬 Easy Communication</div>
+<div class="card">⏱️ On-Time Delivery</div>
+</div>
+</section>
 
-  <!-- CREATIONS -->
-  <section>
-    <h2 class="section-title">My Creations</h2>
-    <div class="grid">
-      <div class="card">
-        <h3>Project One</h3>
-        <p>Responsive business website with animations.</p>
-      </div>
-      <div class="card">
-        <h3>Project Two</h3>
-        <p>Landing page optimized for conversions.</p>
-      </div>
-      <div class="card">
-        <h3>Project Three</h3>
-        <p>Portfolio website with modern UI design.</p>
-      </div>
-    </div>
-  </section>
+<!-- PROJECTS -->
+<section class="reveal">
+<h2>My Projects</h2>
+<div class="grid">
 
-  <!-- CONTACT -->
-  <section class="contact">
-    <h2 class="section-title">Contact Me</h2>
-    <p>Let’s work together and build something great.</p>
-    <a href="mailto:your@email.com">Hire Me</a>
-  </section>
+<div class="card project">
+<img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f" alt="">
+<h3>Business Website</h3>
+<p>Lead-optimized business website.</p>
+<div class="project-links">
+<a href="https://dsnooky.github.io" target="_blank">Live Demo</a>
+<a href="https://github.com/dsnooky" target="_blank">Source</a>
+</div>
+</div>
 
-  <footer>
-    © 2026 Your Name. All Rights Reserved.
-  </footer>
+<div class="card project">
+<img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085" alt="">
+<h3>Portfolio Website</h3>
+<p>Personal portfolio for freelancers.</p>
+<div class="project-links">
+<a href="https://dsnooky.github.io" target="_blank">Live Demo</a>
+<a href="https://github.com/dsnooky" target="_blank">Source</a>
+</div>
+</div>
 
-  <script>
-    const cards = document.querySelectorAll('.card');
+<div class="card project">
+<img src="https://images.unsplash.com/photo-1556761175-4b46a572b786" alt="">
+<h3>Landing Page</h3>
+<p>High-converting service landing page.</p>
+<div class="project-links">
+<a href="https://dsnooky.github.io" target="_blank">Live Demo</a>
+<a href="https://github.com/dsnooky" target="_blank">Source</a>
+</div>
+</div>
 
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('show');
-        }
-      });
-    }, { threshold: 0.2 });
+</div>
+</section>
 
-    cards.forEach(card => observer.observe(card));
-  </script>
+<!-- PRICING -->
+<section id="pricing" class="reveal">
+<h2>Pricing Packages</h2>
+<div class="grid">
+
+<div class="card">
+<h3>Starter</h3>
+<p class="price">$99</p>
+<p>✔ 1-Page Website</p>
+<p>✔ Responsive Design</p>
+<p>✔ Basic Animation</p>
+<p>✔ 3-Day Delivery</p>
+</div>
+
+<div class="card">
+<h3>Professional</h3>
+<p class="price">$249</p>
+<p>✔ Multi-Page Website</p>
+<p>✔ SEO Optimization</p>
+<p>✔ Contact Form</p>
+<p>✔ 5-Day Delivery</p>
+</div>
+
+<div class="card">
+<h3>Business</h3>
+<p class="price">$499</p>
+<p>✔ Custom Design</p>
+<p>✔ Advanced Animation</p>
+<p>✔ Lead Optimization</p>
+<p>✔ Priority Support</p>
+</div>
+
+</div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="reveal">
+<h2>Client Testimonials</h2>
+<div class="grid">
+
+<div class="card">
+<p>“Professional, fast, and high-quality work. Highly recommended.”</p>
+<strong>— Business Owner</strong>
+</div>
+
+<div class="card">
+<p>“Understands client needs and delivers on time.”</p>
+<strong>— Startup Founder</strong>
+</div>
+
+<div class="card">
+<p>“Our website conversions improved significantly.”</p>
+<strong>— Freelancer Client</strong>
+</div>
+
+</div>
+</section>
+
+<!-- CONTACT -->
+<section class="reveal">
+<h2>Contact Me</h2>
+<div class="card">
+<form>
+<input type="text" placeholder="Your Name" required>
+<input type="email" placeholder="Your Email" required>
+<textarea rows="5" placeholder="Describe your project"></textarea>
+<button type="submit">Send Message</button>
+</form>
+</div>
+</section>
+
+<footer>
+© 2026 Snooky Delos Reyes | Freelance Web Developer
+</footer>
+
+<script>
+const reveals=document.querySelectorAll('.reveal');
+window.addEventListener('scroll',()=>{
+reveals.forEach(r=>{
+if(r.getBoundingClientRect().top<window.innerHeight-100){
+r.classList.add('active')
+}
+})
+})
+</script>
 
 </body>
 </html>
