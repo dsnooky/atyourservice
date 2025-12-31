@@ -152,6 +152,35 @@ footer{text-align:center;padding:30px;background:#fff;color:var(--gray);}
 <footer>
   © 2025 Snooky Delos Reyes • Freelance Web Developer
 </footer>
+  <!-- WhatsApp Floating Button -->
+<a href="https://wa.me/639XXXXXXXXX" target="_blank" id="whatsapp-btn">
+  <img src="https://img.icons8.com/color/48/000000/whatsapp--v1.png" alt="WhatsApp">
+</a>
+
+<style>
+#whatsapp-btn {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  z-index: 1000;
+  width: 60px;
+  height: 60px;
+  background: #25D366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  transition: transform 0.3s;
+}
+#whatsapp-btn img {
+  width: 35px;
+  height: 35px;
+}
+#whatsapp-btn:hover {
+  transform: scale(1.1);
+}
+</style>
 
 </body>
 </html>
