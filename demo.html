@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Demo Small Business Website</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  color: #fff;
+  scroll-behavior: smooth;
+}
+
+/* HERO SECTION */
+.hero {
+  min-height: 100vh;
+  background: linear-gradient(
+    rgba(0,0,0,0.6),
+    rgba(0,0,0,0.6)
+  ),
+  url('https://images.unsplash.com/photo-1504674900247-0877df9cc836') center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+}
+
+.hero-content {
+  max-width: 700px;
+  animation: fadeUp 1.2s ease forwards;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+}
+
+.hero p {
+  font-size: 1.1rem;
+  margin-bottom: 25px;
+  opacity: 0.9;
+}
+
+.btn {
+  background: #22c55e;
+  color: #fff;
+  padding: 14px 30px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  display: inline-block;
+}
+
+/* SECTIONS */
+section {
+  padding: 70px 20px;
+  background: #0f172a;
+}
+
+section.light {
+  background: #f9fafb;
+  color: #111;
+}
+
+.container {
+  max-width: 1100px;
+  margin: auto;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 2rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+}
+
+.card {
+  background: #fff;
+  color: #111;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+  transform: translateY(30px);
+  opacity: 0;
+  animation: fadeUp 1s ease forwards;
+}
+
+.card:nth-child(2) { animation-delay: .2s; }
+.card:nth-child(3) { animation-delay: .4s; }
+
+/* CONTACT */
+.contact {
+  text-align: center;
+}
+
+.contact a {
+  margin-top: 20px;
+}
+
+/* FOOTER */
+footer {
+  background: #020617;
+  padding: 25px;
+  text-align: center;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+/* ANIMATION */
+@keyframes fadeUp {
+  from {
+    transform: translateY(40px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+  .hero h1 {
+    font-size: 1.9rem;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-content">
+    <h1>Welcome to Demo Café</h1>
+    <p>A modern, cozy place serving fresh food and great coffee every day.</p>
+    <a href="#contact" class="btn">Contact Us</a>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="light">
+  <div class="container">
+    <h2>Our Services</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Fresh Meals</h3>
+        <p>Delicious, freshly prepared meals made with quality ingredients.</p>
+      </div>
+      <div class="card">
+        <h3>Quality Coffee</h3>
+        <p>Handcrafted coffee using premium beans for every cup.</p>
+      </div>
+      <div class="card">
+        <h3>Takeaway Orders</h3>
+        <p>Quick and convenient takeaway for busy customers.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section>
+  <div class="container">
+    <h2>Why Choose Us</h2>
+    <div class="grid">
+      <div class="card">✔ Friendly local business</div>
+      <div class="card">✔ Affordable pricing</div>
+      <div class="card">✔ Clean & welcoming space</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="light" id="contact">
+  <div class="container contact">
+    <h2>Get in Touch</h2>
+    <p>Have questions or want to place an order? Message us today.</p>
+    <a class="btn" href="https://m.me/yourpage" target="_blank">Message on Facebook</a>
+  </div>
+</section>
+
+<footer>
+  © 2026 Demo Café | Website Demo by Snooky Delos Reyes
+</footer>
+
+</body>
+</html>
